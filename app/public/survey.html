@@ -226,7 +226,7 @@
     </div>
 </body>
 <script>
-$("#submitButton").on("click", function(){
+$("#submitButton").on("click", function(event){
     //loops through the radio buttons to get Value//
     var radios = document.getElementsByTagName("input");
     var scores =[];
@@ -235,12 +235,15 @@ $("#submitButton").on("click", function(){
                 scores.push(radios[i].value);
             }
         }
-        var newPerson = {
-        name: $("#name").val(),
-        pictureURL: $("#selfie").val(),
-        scores: scores
-        }
-        console.log(newPerson)
+    var newFriend = {
+    name: $("#name").val(),
+    pictureURL: $("#selfie").val(),
+    scores: scores
+    }
+    console.log(newFriend)
+    $.post("/api/friends", newFriend, function(data){
+        if (data) alert(data);
+    })   
 });
 </script>
 </html>
