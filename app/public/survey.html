@@ -40,7 +40,6 @@
             <br>
         <h4><b>Question 2</b></h4>
         <h4>You are a political person</h4>
-
                 <label class="radio-inline">
                   <input type="radio" name="q2" value ="1">1
                 </label>
@@ -208,6 +207,7 @@
 </body>
 <script>
 $("#submitButton").on("click", function(){
+    event.preventDefault();
     //loops through the radio buttons to get Value//
     var radios = document.getElementsByTagName("input");
     var scores =[];
@@ -223,6 +223,10 @@ $("#submitButton").on("click", function(){
     }
     console.log(newFriend)
     $.post("/api/friends", newFriend, function(data){
+        console.log(data)
+        if (data){
+            alert('yes')
+        }
 
     })   
 });
