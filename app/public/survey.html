@@ -223,12 +223,8 @@ $("#submitButton").on("click", function(){
     }
     console.log(newFriend)
     $.post("/api/friends", newFriend, function(data){
-        console.log(data)
-        if (data){
-            alert('yes')
-        }
 
-    })   
+    })  ; 
 });
 </script>
 </html>
